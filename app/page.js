@@ -1,10 +1,8 @@
 import Image from 'next/image';
 
-function Card(props) {
+function Card({ children }) {
   return (
-    <div className="border rounded-md border-gray-600 p-4">
-      Card Component: {props.text}
-    </div>
+    <div className='border rounded-md border-gray-600 p-4'>{children}</div>
   );
 }
 
@@ -13,10 +11,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="p-20 space-y-4">
+      <div className='p-20 space-y-4'>
         <div>Hello, {name}</div>
-        <Card text="This is being passed from parent"/>
-        <Card />
+        <Card>This is being passed from parent</Card>
+        <Card>
+          <div>This is JS!</div>
+          <Card>Nested text!</Card>
+        </Card>
         <Card />
         <Card />
       </div>
