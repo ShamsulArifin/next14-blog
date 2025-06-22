@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 
 function Card({ children }) {
@@ -8,6 +10,13 @@ function Card({ children }) {
 
 export default function Home() {
   const name = 'Piotr';
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    
+    console.log(e)
+    alert('Hello!')
+  }
 
   return (
     <>
@@ -20,6 +29,7 @@ export default function Home() {
         </Card>
         <Card />
         <Card />
+        <button onClick={handleClick}> Click me! </button>
       </div>
     </>
   );
