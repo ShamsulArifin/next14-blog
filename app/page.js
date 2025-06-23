@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 function Card({ children }) {
   return (
@@ -9,14 +10,12 @@ function Card({ children }) {
 }
 
 export default function Home() {
-  const name = 'Piotr';
+  const [label, setLabel] = useState('Show')
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    
-    console.log(e)
-    alert('Hello!')
-  }
+  const name = 'Piotr';
+  const handleClick = () => {
+    setLabel (label == 'Show' ? 'Hide' : 'Show')
+  };
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function Home() {
         </Card>
         <Card />
         <Card />
-        <button onClick={handleClick}> Click me! </button>
+        <button className='border rounded-md border-gray-600 p-3' onClick={handleClick}>{label}</button>
       </div>
     </>
   );
